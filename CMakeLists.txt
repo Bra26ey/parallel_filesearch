@@ -12,9 +12,14 @@ find_package(Threads)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS}
                     include)
 
+file(GLOB FILESEARCH_LIB_SRC "source/*.cpp")
+
+add_library(filesearch_lib SHARED ${FILESEARCH_LIB_SRC})
+
 add_executable(file_search main.cpp)
 
 target_link_libraries(file_search
+                      filesearch_lib
                       ${CMAKE_THREAD_LIBS_INIT}
                       ${Boost_LIBRARIES})
 

@@ -8,7 +8,7 @@
 namespace bf = boost::filesystem;
 
 constexpr size_t TARGET = 1;
-constexpr size_t PATH = 2;
+constexpr size_t PATH = 3;
 constexpr size_t N_THREAD = 5;
 constexpr size_t ARG_SIZE = 6;
 
@@ -33,13 +33,8 @@ int main(int argc, char *const argv[]) {
                   << "there are " << threads_avaliable << " threads used\n"; 
     }    
 
-    for (size_t i = 0; i < static_cast<size_t>(argc); ++i) {
-        std::cout << argv[i] << " ";
-    }
-
-    // for (size_t i = 0; i < thread_nom; ++i) {
-    //     threads.create_thread()
-    // }
+    auto filenames = get_files(pathname);
+    file_search(filenames, thread_nom, target);
     
     return 0;
 }
