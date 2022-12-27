@@ -6,7 +6,6 @@
 #include <boost/bind/bind.hpp>
 
 #include "file_search.h"
-#include "tsqueue.h"
 
 namespace bf = boost::filesystem;
 

@@ -4,6 +4,7 @@
 #include <boost/filesystem.hpp>
 
 #include "file_search.h"
+#include "tree_search.h"
 
 namespace bf = boost::filesystem;
 
@@ -33,8 +34,11 @@ int main(int argc, char *const argv[]) {
                   << "there are " << threads_avaliable << " threads used\n"; 
     }    
 
-    auto filenames = get_files(pathname);
-    file_search(filenames, thread_nom, target);
+    // auto filenames = get_files(pathname);
+    // file_search(filenames, thread_nom, target);
+
+    PathTree pathtree(pathname);
+    pathtree.search(target, thread_nom);
     
     return 0;
 }
